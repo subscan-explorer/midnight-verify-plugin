@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "network": "preview",
+  "phase": "verified",
+  "compilerVersion": "0.31.1",
+  "sourceDigest": "d12d540c17cd1906263d07ee6ca325fb44b0fcdfbcb4fb78c440d1ecb8f33da6",
+  "files": [
+    "lib/message.compact",
+    "main.compact"
+  ],
+  "createdAt": "2026-10-03T03:39:41.331Z",
+  "updatedAt": "2026-10-03T03:49:44.447Z",
+  "sdkVersion": "4.1.1",
+  "walletSdkVersion": "1.2.0",
+  "runtimeVersion": "0.16.0",
+  "submittedTransactionId": "000015521d1c3b2393c9638b8f7d4d6115cd4fc847d778df8643dc72fa41c51c54",
+  "contractAddress": "0xb7f320f6944c6a96c00bf9d6b44b66136b6dfd3c52bf49b9106e3634a64907ed",
+  "deployBlockHash": "0x15acbfa5faf5562a82e8a8ba4365f770ae331a47bddfe4da1cb80d10d020caf1",
+  "deployedAt": "2026-10-03T03:49:03.535Z",
+  "initialLedgerChecked": true,
+  "verification": {
+    "status": "verified",
+    "address": "0xb7f320f6944c6a96c00bf9d6b44b66136b6dfd3c52bf49b9106e3634a64907ed",
+    "contractUrl": "https://midnight-preview.subscan.io/contract/0xb7f320f6944c6a96c00bf9d6b44b66136b6dfd3c52bf49b9106e3634a64907ed?tab=contract",
+    "matchesBundle": true
+  },
+  "persistedResultChecked": true,
+  "verifyTime": 1790999376,
+  "deploymentBlock": 1130062,
+  "extrinsicIndex": "1130062-3",
+  "subscanTransactionHash": "0x29e5f2d0f7e1292e3035b20e930eb14064582092617151ce23688b766a7ce25c"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "midnight-verify-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compact build snapshots and Subscan source verification for Midnight",
+  "repository": { "type": "git", "url": "git+https://github.com/subscan-explorer/midnight-verify-plugin.git" },
+  "homepage": "https://github.com/subscan-explorer/midnight-verify-plugin#readme",
+  "bugs": { "url": "https://github.com/subscan-explorer/midnight-verify-plugin/issues" },
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": { "node": ">=22.16.0" },
+  "bin": { "midnight-verify": "./dist/cli.js" },
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "CHANGELOG.md", "docs", "examples", "e2e"],
+  "keywords": ["midnight", "compact", "subscan", "contract-verification"],
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "check:release": "node scripts/check-release.mjs",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "test:live": "node --experimental-transform-types --experimental-import-meta-resolve e2e/run.mjs",
+    "prepack": "npm run build"
+  },
+  "devDependencies": { "@types/node": "22.16.0", "typescript": "5.9.3" }
+}
