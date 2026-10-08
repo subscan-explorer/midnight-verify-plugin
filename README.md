@@ -10,9 +10,9 @@ See the [Usage Guide](docs/guide.md) for compilation, deployment, verification, 
 
 Watch the silent 1080p walkthrough (2 minutes 51 seconds): build and inspect a frozen source bundle, configure the API key, run verification, and check the result on Subscan. The recording rechecks an already verified Preview contract; it does not deploy a new contract or submit new source.
 
-[![Watch the Midnight verification tutorial](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/thumbnail.png)](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/midnight-verify-tutorial-silent.mp4)
+[![Watch the Midnight verification tutorial](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/thumbnail.png)](https://cdn.jsdelivr.net/gh/subscan-explorer/midnight-verify-plugin@bf5ff6642e4afe43811894b35d6e6760ec6fc23a/media/midnight-verify-tutorial-silent.mp4)
 
-[Watch or download the video](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/midnight-verify-tutorial-silent.mp4) · [English subtitles](https://github.com/subscan-explorer/midnight-verify-plugin/blob/main/media/midnight-verify-tutorial.en.srt) · [Written guide](docs/guide.md)
+[Watch the video](https://cdn.jsdelivr.net/gh/subscan-explorer/midnight-verify-plugin@bf5ff6642e4afe43811894b35d6e6760ec6fc23a/media/midnight-verify-tutorial-silent.mp4) · [Download MP4](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/midnight-verify-tutorial-silent.mp4) · [English subtitles](https://github.com/subscan-explorer/midnight-verify-plugin/blob/main/media/midnight-verify-tutorial.en.srt) · [Written guide](docs/guide.md)
 
 The MP4 includes English subtitles and chapter markers. If your player does not display embedded subtitles, load the `.srt` file linked above. Tutorial media is stored in this repository and excluded from the npm package.
 
