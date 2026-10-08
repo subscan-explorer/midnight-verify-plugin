@@ -1,0 +1,140 @@
+1
+00:00:00,350 --> 00:00:06,978
+Verification needs four inputs: network, public contract address,
+verification bundle, and Subscan API key.
+
+2
+00:00:06,978 --> 00:00:09,818
+This is a real Preview example.
+
+3
+00:00:09,818 --> 00:00:13,605
+Skip compilation if you already saved the bundle.
+
+4
+00:00:14,355 --> 00:00:17,216
+Start from the plugin repository checkout.
+
+5
+00:00:17,216 --> 00:00:21,985
+Install dependencies with npm ci, then run npm run build.
+
+6
+00:00:21,985 --> 00:00:24,370
+Use Node 22.16 or later.
+
+7
+00:00:24,370 --> 00:00:27,231
+The npm package is currently unpublished.
+
+8
+00:00:29,491 --> 00:00:34,310
+Use exactly the source deployed on chain, including relative
+imports.
+
+9
+00:00:34,310 --> 00:00:38,165
+This two-file example matches our existing Preview deployment.
+
+10
+00:00:38,165 --> 00:00:42,021
+Source verification makes these selected Compact files public.
+
+11
+00:00:43,859 --> 00:00:51,905
+Run build with the source directory, entry file, exact compiler
+version, and a new output directory.
+
+12
+00:00:51,905 --> 00:00:56,934
+Version 0.31.1 matches this deployment; choose your own
+deployment's version.
+
+13
+00:00:56,934 --> 00:01:01,460
+The plugin compiles a frozen snapshot and writes verification.json.
+
+14
+00:01:03,090 --> 00:01:09,152
+Run inspect to check the compiler version, entry file, source
+digest, and included files.
+
+15
+00:01:09,152 --> 00:01:14,347
+For a new deployment, preserve the bundle from the same build
+artifacts.
+
+16
+00:01:14,347 --> 00:01:18,244
+For an existing contract, keep its original deployment bundle.
+
+17
+00:01:19,689 --> 00:01:23,323
+Set SUBSCAN_API_KEY in your shell or CI secrets.
+
+18
+00:01:23,323 --> 00:01:26,957
+The hidden prompt keeps the key off screen.
+
+19
+00:01:26,957 --> 00:01:34,226
+A .env file is not loaded automatically; use Node's --env-file
+option if you choose that approach.
+
+20
+00:01:37,484 --> 00:01:41,478
+Set the public hex contract address from your deployment receipt.
+
+21
+00:01:41,478 --> 00:01:44,274
+Run verify with network, address, and --build-info.
+
+22
+00:01:44,274 --> 00:01:51,463
+The client reads the API key from the environment and selects the
+Subscan API endpoint from the network.
+
+23
+00:02:03,564 --> 00:02:08,426
+This contract is already-verified, so the real CLI returns already-
+verified.
+
+24
+00:02:08,426 --> 00:02:10,371
+Always check matchesBundle: true.
+
+25
+00:02:10,371 --> 00:02:16,693
+That confirms the stored source and exact compiler version match
+this local snapshot.
+
+26
+00:02:17,572 --> 00:02:19,627
+Open the returned contract URL.
+
+27
+00:02:19,627 --> 00:02:23,737
+A pending result means keep checking with the original bundle.
+
+28
+00:02:23,737 --> 00:02:26,614
+A verification timeout does not require redeployment.
+
+29
+00:02:26,614 --> 00:02:30,724
+This recording rechecks an existing record without submitting new
+source.
+
+30
+00:02:31,578 --> 00:02:37,106
+On the live Subscan page, confirm Verified Contract and Compact
+version 0.31.1.
+
+31
+00:02:37,106 --> 00:02:43,554
+You have now checked both the matching CLI result and the public
+verification status.
+
+32
+00:02:43,554 --> 00:02:46,779
+Keep your verification bundle for future checks.

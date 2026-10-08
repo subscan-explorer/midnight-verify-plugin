@@ -6,6 +6,16 @@ This is an **unpublished npm prototype**. The `private: true` setting prevents a
 
 See the [Usage Guide](docs/guide.md) for compilation, deployment, verification, DApp integration and receipt-based recovery.
 
+## Video tutorial
+
+Watch the silent 1080p walkthrough (2 minutes 51 seconds): build and inspect a frozen source bundle, configure the API key, run verification, and check the result on Subscan. The recording rechecks an already verified Preview contract; it does not deploy a new contract or submit new source.
+
+[![Watch the Midnight verification tutorial](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/thumbnail.png)](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/midnight-verify-tutorial-silent.mp4)
+
+[Watch or download the video](https://raw.githubusercontent.com/subscan-explorer/midnight-verify-plugin/main/media/midnight-verify-tutorial-silent.mp4) · [English subtitles](https://github.com/subscan-explorer/midnight-verify-plugin/blob/main/media/midnight-verify-tutorial.en.srt) · [Written guide](docs/guide.md)
+
+The MP4 includes English subtitles and chapter markers. If your player does not display embedded subtitles, load the `.srt` file linked above. Tutorial media is stored in this repository and excluded from the npm package.
+
 ## Local development
 
 Requires Node.js >= 22.16 and npm. Actual Compact builds also require an installed compiler and its key-generation tools. File-system and HTTP tests use local fixtures and require neither a compiler installation nor an API key.
