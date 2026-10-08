@@ -194,7 +194,11 @@ export async function buildVerificationBundle(options: BuildOptions): Promise<Ve
     await fs.mkdir(path.dirname(output), { recursive: true });
     await fs.mkdir(output); // Never overwrite an existing deployment artifact directory.
     ownsOutput = true;
-    await fs.cp(compiled, output, { recursive: true, errorOnExist: true, force: false });
+    // Node 24 applies errorOnExist to directories too; copy children into the exclusively reserved root.
+    for (const name of await fs.readdir(compiled)) {
+      signal.throwIfAborted();
+      await fs.cp(path.join(compiled, name), path.join(output, name), { recursive: true, errorOnExist: true, force: false });
+    }
     signal.throwIfAborted();
     await fs.writeFile(path.join(output, 'verification.json'), JSON.stringify(bundle, null, 2) + '\n', { flag: 'wx', mode: 0o600 });
     ownsOutput = false;

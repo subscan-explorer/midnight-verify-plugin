@@ -4,6 +4,7 @@
 
 - CLI and JavaScript/TypeScript APIs for frozen Compact builds and Subscan source verification.
 - Exact compiler version, launcher/direct-compiler mode and executable-path configuration.
+- Artifact publication compatible with Node 24's directory existence checks, while preserving exclusive output-directory creation and no-overwrite copying.
 - Single-file and multi-file bundles with bounded file access, snapshot integrity checks and required-key checks.
 - Address-level verification polling, cancellation, explicit pending results and at most one submission per invocation.
 - Opt-in Preview / Preprod deployment harness with public receipts and wallet-free verification resume.

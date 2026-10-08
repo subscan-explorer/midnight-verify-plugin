@@ -19,6 +19,8 @@ npm run check:release
 
 `npm test` builds the TypeScript output. Use `npm run build` to build it separately. There are no runtime npm dependencies; development dependencies are locked in `package-lock.json`. Release checks validate English text and documentation links, inspect the package contents, and install the tarball into an isolated consumer to test its exports, CLI and TypeScript declarations. They do not deploy contracts or publish packages.
 
+CI checks Linux and macOS with Node.js 22.16.0 and 24. Artifact publication reserves a new output directory and copies its contents without overwriting existing targets; this also supports Node 24's stricter directory-copy checks. See [GitHub Actions](https://github.com/subscan-explorer/midnight-verify-plugin/actions) for current results.
+
 Before public submission, release checks also reject credential literals, wallet identities, internal endpoints and sensitive files, including force-added ignored files. Keep wallet state and authentication files outside publication inputs. See the [publication safety review](docs/publication-safety.md) for scope, evidence and repeatable checks.
 
 ## Build and inspect
