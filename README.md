@@ -2,7 +2,18 @@
 
 Source verification for Midnight Compact contracts, available as a CLI and TypeScript/JavaScript functions. Freeze and compile the source, then submit the same snapshot to Subscan and wait for the verification result.
 
-This is an **unpublished npm prototype**. The `private: true` setting prevents accidental npm publication; it does not describe Git repository visibility. Verification reuses the existing Subscan backend and midnight-go. The verification client requires no wallet, Blockfrost endpoint or additional service deployment. See [design and release boundaries](docs/design.md) and the [release checklist](docs/release.md).
+Version **0.1.0** is the initial client release under the [MIT license](LICENSE). The recorded live workflow covers Preview with Compact 0.31.1; Preprod, Mainnet and server-side acceptance remain separate. Verification reuses the existing Subscan backend and midnight-go. The verification client requires no wallet, Blockfrost endpoint or additional service deployment. See [design and release boundaries](docs/design.md) and the [release checklist](docs/release.md).
+
+## Install
+
+Requires Node.js >= 22.16:
+
+```bash
+npm install --save-dev midnight-verify-plugin
+npx midnight-verify --help
+```
+
+Import `verifyContract` and the other public functions from `midnight-verify-plugin`, or run the CLI with `npx midnight-verify`. Actual builds also require an installed Compact compiler and its key-generation tools. Set `SUBSCAN_API_KEY` through your shell or CI secrets when submitting verification.
 
 See the [Usage Guide](docs/guide.md) for compilation, deployment, verification, DApp integration and receipt-based recovery.
 
@@ -38,13 +49,13 @@ Before public submission, release checks also reject credential literals, wallet
 The following command freezes the source, compiles the snapshot in a temporary directory, checks compiler metadata and required prover/verifier keys, and writes deployment artifacts with `verification.json`:
 
 ```bash
-node dist/cli.js build \
+npx midnight-verify build \
   --source-dir examples/hello-world \
   --entry main.compact \
   --compiler-version "$MIDNIGHT_COMPACT_VERSION" \
   --out managed/hello-world
 
-node dist/cli.js inspect \
+npx midnight-verify inspect \
   --build-info managed/hello-world/verification.json
 ```
 
@@ -53,7 +64,7 @@ Set `MIDNIGHT_COMPACT_VERSION` in your shell or CI to an exact version, or repla
 The multi-file example preserves relative imports:
 
 ```bash
-node dist/cli.js build \
+npx midnight-verify build \
   --source-dir examples/multi-file \
   --entry main.compact \
   --compiler-version "$MIDNIGHT_COMPACT_VERSION" \
@@ -72,7 +83,7 @@ Verification publishes the Compact source in the bundle. Set `SUBSCAN_API_KEY` t
 
 ```bash
 # Set SUBSCAN_API_KEY and assign the public deployed address to MIDNIGHT_CONTRACT_ADDRESS.
-node dist/cli.js verify \
+npx midnight-verify verify \
   --network preview \
   --address "$MIDNIGHT_CONTRACT_ADDRESS" \
   --build-info managed/hello-world/verification.json
@@ -104,7 +115,7 @@ Persist the public deployment receipt before invoking verification. Verification
 
 ## Deployment script integration
 
-After installing the built package into your DApp from a local path or tarball, call it from the existing Midnight.js deployment script:
+After installing the npm package into your DApp, call it from the existing Midnight.js deployment script:
 
 ```ts
 import { verifyContract } from 'midnight-verify-plugin';
@@ -152,11 +163,11 @@ On October 3, 2026, 27 local tests passed, followed by a real Preview run using 
 
 Compiler version, mode and executable configuration subsequently increased the local suite to 34 passing tests. These cover flag/environment precedence, different versions, direct `compactc` arguments, mismatch rejection, API version preflight and preserving the deployment version during resume. A real direct `compactc` 0.31.1 build also generated complete keys with the same source digest as the Preview deployment. Other compiler versions were exercised through local fixtures, not live network acceptance.
 
-Release preparation increased the local suite to **37 passing tests**, adding checks for English text, portable paths and documentation links. TypeScript checking, tarball inspection and isolated consumer API, CLI and declaration checks passed on macOS arm64 with Node.js 22.16.0. The Linux/macOS CI matrix is configured but has not yet run in a remote repository. See the [release checklist](docs/release.md) for unresolved metadata and acceptance requirements.
+Release preparation increased the local suite to **37 passing tests**, adding checks for English text, portable paths and documentation links. TypeScript checking, tarball inspection and isolated consumer API, CLI and declaration checks passed on macOS arm64 with Node.js 22.16.0. The Linux/macOS CI matrix with Node 22.16.0 and 24 subsequently passed in the public repository. See the [release checklist](docs/release.md) for validation and acceptance boundaries.
 
 The October 8 publication review increased the suite to **43 passing tests**, added credential/file safeguards and sanitized wallet identity from receipts and harness output. Redacted scans covered all publication candidates and the actual npm package. These checks do not establish a general security audit or network acceptance.
 
-Preprod and Mainnet acceptance and server-side release requirements remain outstanding. No npm package or backend/helper service has been released through this project.
+The initial npm release distributes the client. Preprod and Mainnet acceptance and independent server-side requirements remain outstanding. Package publication does not deploy or upgrade the backend/helper services, establish a security audit, or prove verification after contract maintenance.
 
 See the [protocol](docs/protocol.md), [engineering decisions](docs/ai/TASTE.md), [Subscan verification guide](https://support.subscan.io/doc-2430000), [Compact compiler usage](https://docs.midnight.network/compact/compilation-and-tooling/compiler-usage) and [Midnight deployment interfaces](https://docs.midnight.network/guides/deploy-and-operate).
 

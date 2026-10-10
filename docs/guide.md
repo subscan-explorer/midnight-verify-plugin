@@ -2,6 +2,15 @@
 
 This guide describes the workflow validated on Preview: freeze and compile the Compact source, deploy using the artifacts from the same output directory, save the public deployment receipt, and submit the frozen source to Subscan for verification. Results and page evidence from October 3, 2026 are available in the [Preview E2E report](e2e/preview-2026-10-03.md).
 
+Install the CLI and library into your DApp with Node.js >= 22.16:
+
+```bash
+npm install --save-dev midnight-verify-plugin
+npx midnight-verify --help
+```
+
+The CLI uses the same implementation as the JavaScript/TypeScript exports. The manual deployment harness below uses a source checkout and an existing Midnight.js SDK installation; ordinary verification through the npm package requires no wallet.
+
 ## Workflow and responsibilities
 
 ```mermaid
@@ -209,4 +218,4 @@ cd /path/to/midnight-go/e2e
 docker compose --project-name midnight-plugin-live down
 ```
 
-Standard local checks are `npm run check`, `npm test` and `npm pack --dry-run`; they do not deploy contracts. The live harness permits only Preview / Preprod. Preview has been validated; Preprod, Mainnet and other compiler versions require separate acceptance testing. The npm package remains unpublished; `private: true` prevents accidental npm publication and does not describe repository visibility. See [design and release boundaries](design.md) for npm release requirements.
+Standard local checks are `npm run check`, `npm test` and `npm pack --dry-run`; they do not deploy contracts. The live harness permits only Preview / Preprod. Preview has been validated; Preprod, Mainnet and other compiler versions require separate acceptance testing. The npm package distributes the client under MIT; publication does not establish server-side or additional network acceptance. See [design and release boundaries](design.md).

@@ -1,12 +1,11 @@
 {
   "name": "midnight-verify-plugin",
   "version": "0.1.0",
-  "private": true,
   "description": "Compact build snapshots and Subscan source verification for Midnight",
   "repository": { "type": "git", "url": "git+https://github.com/subscan-explorer/midnight-verify-plugin.git" },
   "homepage": "https://github.com/subscan-explorer/midnight-verify-plugin#readme",
   "bugs": { "url": "https://github.com/subscan-explorer/midnight-verify-plugin/issues" },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "type": "module",
   "engines": { "node": ">=22.16.0" },
   "bin": { "midnight-verify": "./dist/cli.js" },
@@ -20,7 +19,8 @@
     "check:release": "node scripts/check-release.mjs",
     "test": "npm run build && node --test test/*.test.mjs",
     "test:live": "node --experimental-transform-types --experimental-import-meta-resolve e2e/run.mjs",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run check && npm test && npm run check:release"
   },
   "devDependencies": { "@types/node": "22.16.0", "typescript": "5.9.3" }
 }

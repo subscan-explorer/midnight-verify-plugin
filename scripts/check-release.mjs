@@ -104,7 +104,7 @@ async function checkPackage() {
   try {
     const packed = JSON.parse(await run(process.execPath, [process.env.npm_execpath, 'pack', '--json', '--pack-destination', temporary], root))[0];
     const names = packed.files.map(file => file.path);
-    for (const required of ['dist/index.js', 'dist/index.d.ts', 'dist/cli.js', 'README.md', 'CHANGELOG.md', 'docs/guide.md', 'docs/protocol.md', 'docs/release.md']) {
+    for (const required of ['dist/index.js', 'dist/index.d.ts', 'dist/cli.js', 'README.md', 'CHANGELOG.md', 'LICENSE', 'docs/guide.md', 'docs/protocol.md', 'docs/release.md']) {
       assert.ok(names.includes(required), `Missing package file: ${required}`);
     }
     for (const name of names) {

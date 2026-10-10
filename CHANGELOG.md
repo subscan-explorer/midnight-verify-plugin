@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.0 - 2026-10-10
 
 - CLI and JavaScript/TypeScript APIs for frozen Compact builds and Subscan source verification.
 - Exact compiler version, launcher/direct-compiler mode and executable-path configuration.
@@ -12,5 +12,6 @@
 - English documentation and examples with portable paths.
 - Publication safeguards for credentials, sensitive files, internal endpoints and force-added ignored files; wallet identity removed from public receipts and live-harness output.
 - Release checks for documentation, package contents, installed exports, CLI and TypeScript declarations; CI configuration for Linux/macOS and Node 22.16/24.
+- Initial npm distribution under the MIT license, copyright Subscan, with npm installation instructions and validation before publication.
 
-The package is not published. License, registry ownership, service-side requirements and remaining network acceptance must be completed before an npm release.
+Live validation covers Preview with Compact 0.31.1. Preprod, Mainnet, other compiler versions and independent service-side acceptance are not established by this client release.

@@ -67,4 +67,12 @@ Timestamps use Asia/Shanghai (UTC+08:00). Historical results describe the eviden
     action_judgment: "Review actual Git candidates and package contents with redacted secret scans, reject sensitive files even when force-added, remove wallet identity from public receipts and harness output, and retain only public contract evidence and generic service acceptance requirements"
     feedback_result: "43 local tests and package consumer checks passed; source/package scans found no credential material, the published wallet address was removed and legacy receipt updates stripped it; no commit history existed, and future changes still require fresh review"
   potential_ontology_impact: "PublicationPrivacy separates public chain evidence, wallet identity and credential material"
+- timestamp: "2026-10-10 16:15:00"
+  confidence_score: 0.98
+  source_event: "Explicit user request to publish midnight-verify-plugin to npm and confirmation of MIT with Subscan as copyright holder"
+  contextual_triple:
+    context: "The client has Preview workflow evidence and package/consumer validation, while the prototype documentation still holds publication on broader service and network acceptance"
+    action_judgment: "Distribute the initial client as version 0.1.0 under the confirmed MIT license, supersede the prototype publication hold for this explicit request, and document unvalidated service guarantees, Preprod/Mainnet and other compiler versions separately; validate the exact tarball and recheck the registry before claiming publication"
+    feedback_result: "The existing 43-test suite, local API/CLI/type consumer checks and the public Linux/macOS CI matrix passed before release preparation; publication and final-commit validation require their own evidence, and no additional chain or service deployment is authorized by packaging"
+  potential_ontology_impact: "ClientDistribution separates explicit publication authority, license choice and package acceptance from service/network guarantees"
 ```

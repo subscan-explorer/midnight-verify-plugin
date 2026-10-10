@@ -25,9 +25,9 @@ Verification receives only the public deployed address and bundle, without bindi
 | Maintenance updates | Deployment/maintenance-version binding is required; current records do not prove matching updated circuits |
 | Audit meaning | Source verification does not establish witness correctness, full DApp correctness or a security audit |
 
-## Server-side requirements before npm release
+## Service acceptance requirements
 
-Service owners must independently validate the acceptance conditions below before npm release. Client validation and a successful network pilot do not establish these service guarantees. Internal review evidence and implementation details are outside this public package's documentation.
+Service owners must independently validate the acceptance conditions below for production use. Client validation, package publication and a successful network pilot do not establish these service guarantees. Internal review evidence and implementation details are outside this public package's documentation.
 
 | Requirement | Acceptance condition |
 | --- | --- |
@@ -37,7 +37,7 @@ Service owners must independently validate the acceptance conditions below befor
 | State ordering | Job state transitions remain correct under concurrency; individual job identity and request idempotency are desirable |
 | Maintenance versions | Refresh key projections and bind or invalidate verification records after maintenance events; prior success does not prove continued matching |
 
-These changes belong in the existing service repositories. Until these requirements are met, `private: true` prevents accidental npm publication; it does not restrict public access to the Git repository.
+These changes belong in the existing service repositories. On October 10, 2026, the user explicitly authorized the initial npm client distribution and selected MIT with Subscan as the copyright holder. This supersedes the prototype's publication hold for client distribution; the service requirements remain unverified and are not claimed as part of version 0.1.0.
 
 ## Acceptance sequence
 
@@ -46,8 +46,8 @@ These changes belong in the existing service repositories. Until these requireme
 3. Services: implement and test path limits, resource limits, complete-set matching, state ordering and version binding.
 4. Controlled network pilots: independently validate Preview and Preprod through the client, Subscan API, queue, helper, persistence and public page, including at least one multi-file contract on each.
 5. Mainnet: separately verify an explicitly authorized contract after service configuration, network capability and server-side requirements pass.
-6. npm release: select the license, package name and publishing permissions, then publish separately after service and network requirements pass.
+6. Client distribution: confirm the license, package name and publishing permissions; validate the actual consumer tarball and CI; publish only on an explicit request, with the tested network scope and unresolved service requirements documented.
 
 Project initialization on October 3, 2026 completed the first two steps: 24 local tests and real single-file/multi-file compilation. The user then authorized direct compile, deploy and verify testing. The manual harness increased the suite to 27 tests, and the Preview multi-file workflow passed through Subscan persistence and its public page. Receipt-based resume also passed; see the [Preview E2E report](e2e/preview-2026-10-03.md). Subsequent compiler configuration work increased the local suite to 34 tests.
 
-The early Preview pilot does not replace step 3. Preprod and Mainnet remain unvalidated, and the npm package is unpublished. Only a Preview test contract was deployed; no backend/helper services were deployed by this project. Preparation and remaining release conditions are recorded in the [release checklist](release.md).
+The early Preview pilot does not replace step 3. Preprod and Mainnet remain unvalidated. Only a Preview test contract was deployed; no backend/helper services were deployed by this project. The initial client distribution does not broaden that acceptance scope. Preparation and validation boundaries are recorded in the [release checklist](release.md).
